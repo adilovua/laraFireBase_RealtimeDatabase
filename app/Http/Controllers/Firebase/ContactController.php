@@ -21,7 +21,7 @@ class ContactController extends Controller
 
         return view('firebase.contact.index', [
             'contacts'=>$contacts,
-            'total_contacts'=>$total_contacts
+                'total_contacts'=>$total_contacts
         ]);
     }
 
