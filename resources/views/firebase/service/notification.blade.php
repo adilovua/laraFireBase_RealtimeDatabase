@@ -4,6 +4,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
+                @if (session('status'))
+                    <h4 class="alert alert-success mb-2">{{ session('status') }}</h4>
+                @endif
                 <div class="card">
                     <div class="card-header">
                         <h4> Send notification

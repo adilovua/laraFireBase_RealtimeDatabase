@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 
 class NotficateController extends Controller
 {
+    public function NotificationForm(){
+        return view('firebase.service.notification');
+    }
    public function mysender(){
-    return view('firebase.service.notification');
+        return redirect('notificate')->with('status', 'Notification sent successfully!!');
    }
 }

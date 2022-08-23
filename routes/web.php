@@ -25,4 +25,7 @@ Route::post('/add-contact', [ContactController::class, 'store']);
 Route::get('/edit-contact/{id}', [ContactController::class, 'edit']);
 Route::put('/update-contact/{id}', [ContactController::class, 'update']);
 Route::delete('/delete-contact/{id}', [ContactController::class, 'destroy']);
-Route::get('/notificate', [NotficateController::class, 'mysender']);
+Route::get('/notificate', [NotficateController::class, 'NotificationForm']);
+Route::post('/send-notification', [NotficateController::class, 'mysender']);
+
+Route::get('/Register');
