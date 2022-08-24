@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Firebase\NotficateController;
 use App\Http\Controllers\Firebase\ContactController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MainpageController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,9 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [MainpageController::class, 'mainPage'])->name('mainPage');
 
 Route::get('/contacts', [ContactController::class, 'index']);
 Route::get('/add-contact', [ContactController::class, 'create']);
@@ -29,6 +29,11 @@ Route::delete('/delete-contact/{id}', [ContactController::class, 'destroy']);
 Route::get('/notificate', [NotficateController::class, 'NotificationForm']);
 Route::post('/send-notification', [NotficateController::class, 'mysender']);
 
-//Athentication
+//Athentication registration
 Route::get('register', [RegisterController::class, 'register']);
 Route::post('save_user', [RegisterController::class, 'save_user']);
+
+//login
+
+Route::get('login', [LoginController::class, 'login']);
+Route::post('user_login', [LoginController::class, 'user_login']);
