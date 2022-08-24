@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Firebase\NotficateController;
 use App\Http\Controllers\Firebase\ContactController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,4 +29,6 @@ Route::delete('/delete-contact/{id}', [ContactController::class, 'destroy']);
 Route::get('/notificate', [NotficateController::class, 'NotificationForm']);
 Route::post('/send-notification', [NotficateController::class, 'mysender']);
 
-Route::get('/Register');
+//Athentication
+Route::get('register', [RegisterController::class, 'register']);
+Route::post('save_user', [RegisterController::class, 'save_user']);
