@@ -18,22 +18,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [MainpageController::class, 'mainPage'])->name('mainPage');
 
-Route::get('/contacts', [ContactController::class, 'index']);
-Route::get('/add-contact', [ContactController::class, 'create']);
-Route::post('/add-contact', [ContactController::class, 'store']);
-Route::get('/edit-contact/{id}', [ContactController::class, 'edit']);
-Route::put('/update-contact/{id}', [ContactController::class, 'update']);
-Route::delete('/delete-contact/{id}', [ContactController::class, 'destroy']);
-Route::get('/notificate', [NotficateController::class, 'NotificationForm']);
-Route::post('/send-notification', [NotficateController::class, 'mysender']);
 
 //Athentication registration
 Route::get('register', [RegisterController::class, 'register']);
 Route::post('save_user', [RegisterController::class, 'save_user']);
 
 //login
-
-Route::get('login', [LoginController::class, 'login']);
+Route::get('login', [LoginController::class, 'login'])->name('login');
 Route::post('user_login', [LoginController::class, 'user_login']);
+
+Route::group(['middleware'=>'auth.user'], function(){
+    Route::get('logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('/', [MainpageController::class, 'mainPage'])->name('mainPage');
+    Route::get('/contacts', [ContactController::class, 'index']);
+    Route::get('/add-contact', [ContactController::class, 'create']);
+    Route::post('/add-contact', [ContactController::class, 'store']);
+    Route::get('/edit-contact/{id}', [ContactController::class, 'edit']);
+    Route::put('/update-contact/{id}', [ContactController::class, 'update']);
+    Route::delete('/delete-contact/{id}', [ContactController::class, 'destroy']);
+    Route::get('/notificate', [NotficateController::class, 'NotificationForm']);
+    Route::post('/send-notification', [NotficateController::class, 'mysender']);
+});

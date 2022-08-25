@@ -44,7 +44,6 @@
             var email = $('#email').val();
             var password = $('#password').val();
             var token = $("input[name='_token']").val();
-            alert(token);
             $.ajax({
                 url: 'user_login',
                 type: 'POST',
@@ -54,7 +53,7 @@
                     _token: token
                 },
                 success: function(data){
-                    if ($.isEmtpyObject(data.error)) {
+                    if ($.isEmptyObject(data.error)) {
                         if (data.success){
                             $('#notifDiv').fadeIn();
                             $('#notifDiv').css('background', 'green');
@@ -62,7 +61,7 @@
                             setTimeout(()=>{
                                 $('#notifDiv').fadeOut();
                             }, 3000);
-                            window.location = "{{ route('mainPage') }};"
+                            window.location = "{{ route('mainPage') }}";
                         }
                         else {
                             $('#notifDiv').fadeIn();

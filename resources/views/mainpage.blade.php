@@ -39,7 +39,7 @@
                 </div>
             @endif
 
-
+        @include('firebase.inc.navbar')
         <h1 class="text-center mt-4">Main page</h1>
 
 </body>
