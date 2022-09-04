@@ -22,6 +22,7 @@
                             </div>
 
                             <button type="submit" class="btn btn-dark text-white mt-4" id="login">Login</button>
+                            <a href="{{ url('register') }}" class="btn btn-dark text-white mt-4">New user registration</a>
                         </form>
 
                     </div>

@@ -26,6 +26,39 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" ></script>
+
+
+    <script>
+/*        var firebaseConfig = {
+            apiKey: "AIzaSyAg0dBPP2oqhZdSNUty-j5-gYLwOwscMZc",
+            authDomain: "notificationservice-79bf0.firebaseapp.com",
+            projectId: "notificationservice-79bf0",
+            storageBucket: "notificationservice-79bf0.appspot.com",
+            messagingSenderId: "711790885281",
+            appId: "1:134160842662:web:53d9866a348d9bd3049967",
+            measurementId: "G-8YWE33BJF8"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const messaging = firebase.messaging();
+        messaging
+            .requestPermission()
+            .then(function() {
+                return messaging.getToken()
+            })
+            .then(function(token) {
+                console.log(token);
+            });
+        messaging.onMessage(function(payload) {
+            const noteTitle = payload.notification.title;
+            const noteOptions = {
+                body: payload.notification.body,
+                icon: payload.notification.icon,
+            };
+            //new Notification(noteTitle, noteOptions);
+        });*/
+
+    </script>
+
     @stack('scripts')
 </body>
 </html>
