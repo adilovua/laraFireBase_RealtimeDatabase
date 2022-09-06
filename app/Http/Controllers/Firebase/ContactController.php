@@ -12,6 +12,10 @@ use Kreait\Firebase\Messaging\WebPushConfig;
 use Kreait\Firebase\Exception\Messaging\InvalidMessage;
 use Kreait\Firebase\Contract\Auth;
 
+//kawankoding block
+
+
+
 class ContactController extends Controller
 {
 
@@ -90,7 +94,7 @@ class ContactController extends Controller
     public function edit($id){
         $contact = $this->database->getReference($this->tableName)->getChild($id)->getValue();
         if ($contact) {
-            return view('firebase.contact.edit', [
+           return view('firebase.contact.edit', [
                 'contact' => $contact,
                 'id' => $id,
             ]);
@@ -109,6 +113,21 @@ class ContactController extends Controller
         $contactUpdate = $this->database->getReference($this->tableName.'/'.$id)->update($updateData);
 
         if ($contactUpdate) {
+
+            $recipients = [
+                'egyAouq2KQCu9WhDo1Yxp_:APA91bHqnlE981nHuGmS2dbkTtBBPp-Kqo7CkpFEZkoDuoEpC-ZjtHss9k5GVp_gKTxEu3EvswVLG2ziSoyCW5a3j_40r7aBQ7b8r4wN0S0FzxdfLseraj7sr26pEqO-cYuJYesNs24b',
+            ];
+
+            fcm()
+                ->to($recipients) // $recipients must an array
+                ->priority('high')
+                ->timeToLive(0)
+                ->notification([
+                    'title' => 'Test FCM',
+                    'body' => 'This is a test of FCM',
+                ])
+                ->send();
+
             return redirect('contacts')->with('status', 'Contact updated successfully!');
         }
         else

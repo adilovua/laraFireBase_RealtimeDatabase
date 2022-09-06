@@ -25,16 +25,14 @@ class LoginController extends Controller
             'email'=>$request->input('email'),
             'password'=>$request->input('password')
         ])) {
-                $signInResult = $this->auth->signInWithEmailAndPassword($request->input('email'), $request->input('password'));
-                if ($signInResult) {
-                    return response()->json(['success'=>'You are logged in also on Firebase']);
-                }
-                else {
-                    return response()->json(['success'=>'You are logged in']);
-                }
+               $this->auth->signInWithEmailAndPassword($request->input('email'), $request->input('password'));
+
+
+                return response()->json(['success'=>'You are logged in']);
+
             }
             else {
-                return response()->json(['erroe'=>'Something went wrong']);
+                return response()->json(['error'=>'Something went wrong']);
             }
     }
 

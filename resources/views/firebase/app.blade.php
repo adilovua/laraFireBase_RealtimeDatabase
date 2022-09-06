@@ -28,8 +28,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" ></script>
 
 
-    <script>
-/*        var firebaseConfig = {
+ <!--   <script>
+        var firebaseConfig = {
             apiKey: "AIzaSyAg0dBPP2oqhZdSNUty-j5-gYLwOwscMZc",
             authDomain: "notificationservice-79bf0.firebaseapp.com",
             projectId: "notificationservice-79bf0",
@@ -55,9 +55,9 @@
                 icon: payload.notification.icon,
             };
             //new Notification(noteTitle, noteOptions);
-        });*/
+        });
 
-    </script>
+    </script> -->
 
     @stack('scripts')
 </body>
