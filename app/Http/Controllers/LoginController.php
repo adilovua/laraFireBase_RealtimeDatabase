@@ -25,7 +25,7 @@ class LoginController extends Controller
             'email'=>$request->input('email'),
             'password'=>$request->input('password')
         ])) {
-               $this->auth->signInWithEmailAndPassword($request->input('email'), $request->input('password'));
+             //  $this->auth->signInWithEmailAndPassword($request->input('email'), $request->input('password'));
 
 
                 return response()->json(['success'=>'You are logged in']);
